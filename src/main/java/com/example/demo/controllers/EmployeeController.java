@@ -1,41 +1,41 @@
-package com.example.demo.rest;
-
-
-import com.example.demo.dtos.EmployeesDto;
-
+package com.example.demo.controllers;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.example.demo.dtos.*;
+import com.example.demo.services.EmployeeService;
+import com.example.demo.entities.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://34.147.222.0")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-public class BuyerController {
+@RequestMapping(value="employee")
+public class EmployeeController {
 
-    private final BuyerService service;
-
-    public BuyerController(BuyerService service) {
+    private final EmployeeService service;
+    
+    public EmployeeController(EmployeeService service){
         this.service = service;
     }
 
-    @GetMapping("buyer/get/all")
-    public List<BuyerDto> getAllBuyers () {
-        return service.getAll();
+    @GetMapping("employees/getAll")
+    public List <EmployeeDto> getAllEmployees(){ return service.getAll();}
+
+    @GetMapping("employee/get/{id}")
+    public ResponseEntity<?> getEmployeeById (@PathVariable Integer id) {
+        return service.getEmployee(id);
     }
 
-    @GetMapping("buyer/get/{id}")
-    public ResponseEntity<?> getBuyerById (@PathVariable Integer id) {
-        return service.getBuyer(id);
+    @PostMapping("employee/add")
+    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody Employee newEmployee){
+        return service.createEmployee(newEmployee);
     }
 
-    @PostMapping("buyer/add")
-    public ResponseEntity<BuyerDto> createBuyer(@RequestBody Buyer newBuyer){
-        return service.createBuyer(newBuyer);
-    }
-
-    @DeleteMapping("buyer/remove/{id}")
-    public ResponseEntity<?> removeBuyer(@PathVariable Integer id) {
-        return service.removeBuyer(id);
+    @DeleteMapping("employee/remove/{id}")
+    public ResponseEntity<?> removeEmployee(@PathVariable Integer id) {
+        return service.removeEmployee(id);
     }
 
 }
+
+

@@ -10,11 +10,24 @@ public class Tasks {
     private String taskDetail;
     @ManyToOne
     private Employee employee;
+    private String progress;
 
-    public Tasks(Integer id, String taskDetail, Employee employee) {
+    public Tasks(Integer id, String taskDetail, Employee employee, String progress) {
         this.id = id;
         this.taskDetail = taskDetail;
         this.employee = employee;
+        this.progress = progress;
+    }
+
+    public Tasks() {super();
+    }
+
+    public String getProgress() {
+        return progress;
+    }
+
+    public void setProgress(String progress) {
+        this.progress = progress;
     }
 
     public Integer getId() {

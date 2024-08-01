@@ -22,6 +22,9 @@ public class Employee {
         this.surname = surname;
     }
 
+    public Employee() {
+    }
+
     public Employee(String firstName, String surname) {
         this.firstName = firstName;
         this.surname = surname;
