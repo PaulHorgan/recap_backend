@@ -18,7 +18,7 @@ public class EmployeeController {
         this.service = service;
     }
 
-    @GetMapping("employees/getAll")
+    @GetMapping("employee/getAll")
     public List <EmployeeDto> getAllEmployees(){ return service.getAll();}
 
     @GetMapping("employee/get/{id}")
