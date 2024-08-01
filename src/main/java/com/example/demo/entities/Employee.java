@@ -16,26 +16,23 @@ public class Employee {
     @OneToMany(mappedBy="employee", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Tasks> tasks;
 
+    public Employee(){
+        super();
+    }
+
     public Employee(Integer id, String firstName, String surname) {
         this.id = id;
         this.firstName = firstName;
         this.surname = surname;
     }
 
-    public Employee() {
-    }
+
 
     public Employee(String firstName, String surname) {
         this.firstName = firstName;
         this.surname = surname;
     }
 
-    public Employee(Integer id, String firstName, String surname, List<Tasks> tasks) {
-        this.id = id;
-        this.firstName = firstName;
-        this.surname = surname;
-        this.tasks = tasks;
-    }
 
     public Integer getId() {
         return id;

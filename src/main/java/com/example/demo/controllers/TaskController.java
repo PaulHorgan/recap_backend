@@ -26,8 +26,8 @@ public TaskController(TasksService service){
     }
 
     @GetMapping("tasks/add")
-    public ResponseEntity<TaskDto> createTask(@RequestBody Tasks newTask){
-    return this.service.addTask(newTask);
+    public ResponseEntity<?> addTask(@RequestBody Tasks task){
+    return this.service.addTask(task);
     }
 
     @GetMapping("tasks/update/{id}")

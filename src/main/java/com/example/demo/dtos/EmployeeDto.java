@@ -2,6 +2,7 @@ package com.example.demo.dtos;
 import com.example.demo.entities.*;
 import org.hibernate.sql.model.ast.builder.TableUpdateBuilderSkipped;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDto {
@@ -9,7 +10,7 @@ public class EmployeeDto {
     private String firstName;
     private String surname;
 
-    private List<TaskDto> tasks;
+    private List<TaskDto> tasks = new ArrayList<>();
 
     public EmployeeDto(Employee employee){
         this.id= employee.getId();
